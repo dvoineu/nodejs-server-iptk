@@ -1,0 +1,22 @@
+{
+  "name": "node_server",
+  "version": "1.0.0",
+  "description": "MySQL NodeJS Server Android Studio",
+  "engines": {
+    "node": "10.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team Bravo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "crypto": "^1.0.1",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "uuid": "^3.3.2",
+    "net": "^1.0.2"
+  }
+}
