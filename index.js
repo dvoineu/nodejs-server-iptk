@@ -123,33 +123,33 @@ server.on('error', (err) => {
 
 
     //Encrypt Password
-    var genRandomString = function(length){
-        return crypto.randomBytes(Math.ceil(length/2))
-        .toString('hex')//Conversion to hex-format
-        .slice(0,length);//return req. number of chars
-    };
-
-    var sha512 = function(password,salt){
-        var hash = crypto.createHmac('sha512', salt);
-        hash.update(password);
-        var value = hash.digest('hex');
-        return{
-            salt: salt,
-            passwordHash: value
-        }
-    };
-
-
-    function saltHashPassword(userPassword){
-        var salt = genRandomString(16);// generate random String with 16 characters
-        var passwordData = sha512(userPassword,salt);
-        return passwordData;
-    }
-
-    function checkHashPassword(userPassword, salt){
-        var passwordData = sha512(userPassword,salt);
-        return passwordData;
-    }
+    // var genRandomString = function(length){
+    //     return crypto.randomBytes(Math.ceil(length/2))
+    //     .toString('hex')//Conversion to hex-format
+    //     .slice(0,length);//return req. number of chars
+    // };
+    //
+    // var sha512 = function(password,salt){
+    //     var hash = crypto.createHmac('sha512', salt);
+    //     hash.update(password);
+    //     var value = hash.digest('hex');
+    //     return{
+    //         salt: salt,
+    //         passwordHash: value
+    //     }
+    // };
+    //
+    //
+    // function saltHashPassword(userPassword){
+    //     var salt = genRandomString(16);// generate random String with 16 characters
+    //     var passwordData = sha512(userPassword,salt);
+    //     return passwordData;
+    // }
+    //
+    // function checkHashPassword(userPassword, salt){
+    //     var passwordData = sha512(userPassword,salt);
+    //     return passwordData;
+    // }
 
     var app = express();
     app.use(bodyParser.json());
@@ -204,16 +204,18 @@ server.on('error', (err) => {
 
             if(result && result.length)
             {
-                var salt = result[0].salt;
-                var encrypted_password = result[0].encrypted_password;
-                var hashed_password = checkHashPassword(user_password,salt).passwordHash;
-                if (encrypted_password == hashed_password){
-                    res.end(JSON.stringify(result[0]))// If true, return all info uf the user
-                }
-                else
-                {
-                    res.end(JSON.stringify('WRONG PASSWORD'));
-                }
+                res.end(JSON.stringify(result[0]))
+
+                // var salt = result[0].salt;
+                // var encrypted_password = result[0].encrypted_password;
+                // var hashed_password = checkHashPassword(user_password,salt).passwordHash;
+                // if (encrypted_password == hashed_password){
+                //     res.end(JSON.stringify(result[0]))// If true, return all info uf the user
+                // }
+                // else
+                // {
+                //     res.end(JSON.stringify('WRONG PASSWORD'));
+                // }
             }
             else
             {
