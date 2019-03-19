@@ -8,7 +8,7 @@ const net = require('net');
  var mysql = require('mysql');
  var bodyParser = require('body-parser');
 // const port 	   = process.env.PORT || 3000;
-const port 	   =  8080;
+const port 	   =  3000;
 
 
 
@@ -236,7 +236,7 @@ app.post('/status/', (req,res,next)=>{
     var currentStatus = post_data.currentStatus;
 
 
-    con.query('UPDATE user SET status = \'Busy\' WHERE name = \'Anne\'', [currentStatus], function(err,result,fields){
+    con.query('UPDATE user SET status = ? WHERE name = \'Anne\'', [currentStatus], function(err,result,fields){
         con.on('error', function(err){
             console.log('[MYSQL ERROR]',err);
         });
@@ -252,7 +252,36 @@ app.post('/status/', (req,res,next)=>{
         }
     });
 
-})
+});
+
+    //////// NEW Message Route
+app.post('/message/', (req,res,next)=>{
+
+    var post_data = req.body;
+
+    //Extract Email and Password
+    var message = post_data.messsage;
+
+
+    con.query('UPDATE user SET message = ? WHERE name = \'Anne\'', [message], function(err,result,fields){
+        con.on('error', function(err){
+            console.log('[MYSQL ERROR]',err);
+        });
+
+        if(result && result.length)
+        {
+            res.end(JSON.stringify(result[0]))
+        }
+        else
+        {
+            res.json('USER DOES NOT EXISTS!!!');
+
+        }
+    });
+
+});
+
+///// End of Message Route
 
     //Start server
     app.listen(port,()=>{
