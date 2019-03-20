@@ -260,7 +260,7 @@ app.post('/message/', (req,res,next)=>{
     var post_data = req.body;
 
     //Extract Email and Password
-    var message = post_data.messsage;
+    var message = post_data.message;
 
 
     con.query('UPDATE user SET message = ? WHERE name = \'Anne\'', [message], function(err,result,fields){
@@ -282,6 +282,124 @@ app.post('/message/', (req,res,next)=>{
 });
 
 ///// End of Message Route
+
+//////// Office Hours Route
+app.post('/office_hours/', (req,res,next)=>{
+
+    var post_data = req.body;
+
+    //Extract Email and Password
+    var office_hours = post_data.office_hours;
+
+// testhallo@hello.de
+    con.query('UPDATE user SET officeHours = ? WHERE email = \'testhallo@hello.de\'', [office_hours], function(err,result,fields){
+        con.on('error', function(err){
+            console.log('[MYSQL ERROR]',err);
+        });
+
+        if(result && result.length)
+        {
+            res.end(JSON.stringify(result[0]))
+        }
+        else
+        {
+            res.json('USER DOES NOT EXISTS!!!');
+
+        }
+    });
+
+});
+
+///// End of Route
+
+
+//////// NEW Office Hours Route
+app.post('/createHours/', (req,res,next)=>{
+
+    var post_data = req.body;
+
+    //Extract Email and Password
+    var office_hours = post_data.officeHours;
+    var email = post_data.email;
+
+// testhallo@hello.de
+    con.query('UPDATE user SET officeHours = ? WHERE email = ?', [office_hours, email], function(err,result,fields){
+        con.on('error', function(err){
+            console.log('[MYSQL ERROR]',err);
+        });
+
+        if(result && result.length)
+        {
+            res.end(JSON.stringify(result[0]))
+        }
+        else
+        {
+            res.json('USER DOES NOT EXISTS!!!');
+
+        }
+    });
+
+});
+
+///// End of Route
+
+//////// NEW Office Hours Route
+app.post('/getHours/', (req,res,next)=>{
+
+    let post_data = req.body;
+
+    //Extract Email and Password
+    let office_hours = post_data.officeHours;
+    let email = post_data.email;
+    let name = post_data.name;
+
+// testhallo@hello.de
+    con.query('SELECT name, email, officeHours, status, message FROM user WHERE email = \'testhallo@hello.de\'', function(err,result,fields){
+        con.on('error', function(err){
+            console.log('[MYSQL ERROR]',err);
+        });
+
+        if(result && result.length)
+        {
+            res.end(JSON.stringify(result[0]))
+        }
+        else
+        {
+            res.json('USER DOES NOT EXISTS!!!');
+
+        }
+    });
+
+});
+
+///// End of Route
+
+//// Room Number Route
+app.post('/getRoom/', (req,res,next)=>{
+
+    let post_data = req.body;
+
+    let room_number = post_data.roomNumber;
+
+    con.query("SELECT user.id, user.unique_id, user.name, user.surname, user.positionTitle, user.status FROM user LEFT JOIN office ON user.officeID = office.officeID WHERE office.officeNr = ?", [room_number], function(err,result,fields){
+        con.on('error', function(err){
+            console.log('[MYSQL ERROR]',err);
+        });
+
+        if(result && result.length)
+        {
+            res.end(JSON.stringify(result[0]))
+        }
+        else
+        {
+            res.json('USER DOES NOT EXISTS!!!');
+
+        }
+    });
+
+});
+
+/////// END Room Number Route
 
     //Start server
     app.listen(port,()=>{
