@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="383" column="82" lean-forward="true" selection-start-line="383" selection-start-column="82" selection-end-line="383" selection-end-column="82" />
+            <state relative-caret-position="442">
+              <caret line="398" selection-start-line="398" selection-end-line="398" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -65,10 +65,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1266" />
-    <option name="height" value="856" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -120,16 +120,18 @@
       <updated>1552918114128</updated>
       <workItem from="1552918115326" duration="5189000" />
       <workItem from="1552994696393" duration="4333000" />
-      <workItem from="1553029685018" duration="9785000" />
+      <workItem from="1553029685018" duration="10367000" />
+      <workItem from="1553104232735" duration="40000" />
+      <workItem from="1553106857807" duration="4242000" />
+      <workItem from="1553161318425" duration="538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19307000" />
+    <option name="totallyTimeSpent" value="24709000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1266" height="856" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1266" height="877" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.14843087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -145,7 +147,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.35026738" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19505852" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -155,6 +157,23 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/protocol/Protocol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="143" column="47" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="398" selection-start-line="398" selection-end-line="398" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -171,23 +190,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/protocol/Protocol.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="143" column="47" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="383" column="82" lean-forward="true" selection-start-line="383" selection-start-column="82" selection-end-line="383" selection-end-column="82" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
   </component>
 </project>

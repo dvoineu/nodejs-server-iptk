@@ -381,7 +381,7 @@ app.post('/getRoom/', (req,res,next)=>{
 
     let room_number = post_data.roomNumber;
 
-    con.query("SELECT user.id, user.unique_id, user.name, user.surname, user.positionTitle, user.status FROM user LEFT JOIN office ON user.officeID = office.officeID WHERE office.officeNr = ?", [room_number], function(err,result,fields){
+    con.query("SELECT user.id, user.unique_id, user.name, user.surname, user.positionTitle, user.status, user.officeHours, user.message, user.email FROM user LEFT JOIN office ON user.officeID = office.officeID WHERE office.officeNr = ?", [room_number], function(err,result,fields){
         con.on('error', function(err){
             console.log('[MYSQL ERROR]',err);
         });
