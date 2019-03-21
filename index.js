@@ -7,7 +7,7 @@ const net = require('net');
  var express = require('express');
  var mysql = require('mysql');
  var bodyParser = require('body-parser');
-const port 	   = process.env.PORT || 3000;
+const port 	   = process.env.PORT;
 // const port 	   =  3000;
 
 
