@@ -7,25 +7,22 @@ const net = require('net');
  var express = require('express');
  var mysql = require('mysql');
  var bodyParser = require('body-parser');
-const port 	   = process.env.PORT;
+const port 	   = process.env.PORT || 3000;
 // const port 	   =  3000;
 
 
+// var con = mysql.createConnection({
+//     host:'sql7.freesqldatabase.com',
+//     user:'sql7283688',
+//     password:'Tjel4cFcwB',
+//     database:'sql7283688'
+// });
 
- //MYSQL Connection
- // var con=mysql.createPool({
- //
- //     host:'sql7.freesqldatabase.com',
- //     user:'sql7283688',
- //     password:'Tjel4cFcwB',
- //     database:'sql7283688'
- //
- //    });
 var con = mysql.createConnection({
-    host:'sql7.freesqldatabase.com',
-    user:'sql7283688',
-    password:'Tjel4cFcwB',
-    database:'sql7283688'
+    host:'remotemysql.com',
+    user:'jWrKd0fXsU',
+    password:'MHkvAycHIe',
+    database:'jWrKd0fXsU'
 });
 
 
@@ -235,8 +232,7 @@ app.post('/status/', (req,res,next)=>{
     //Extract Email and Password
     var currentStatus = post_data.currentStatus;
 
-
-    con.query('UPDATE user SET status = ? WHERE name = \'Anne\'', [currentStatus], function(err,result,fields){
+    con.query('UPDATE user SET status = ? WHERE name = \'Simon\'', [currentStatus], function(err,result,fields){
         con.on('error', function(err){
             console.log('[MYSQL ERROR]',err);
         });
@@ -259,11 +255,10 @@ app.post('/message/', (req,res,next)=>{
 
     var post_data = req.body;
 
-    //Extract Email and Password
+    //Extract Message and Name
     var message = post_data.message;
 
-
-    con.query('UPDATE user SET message = ? WHERE name = \'Anne\'', [message], function(err,result,fields){
+    con.query('UPDATE user SET message = ? WHERE name = \'Simon\'', [message], function(err,result,fields){
         con.on('error', function(err){
             console.log('[MYSQL ERROR]',err);
         });
